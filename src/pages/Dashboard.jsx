@@ -1,9 +1,9 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
-import UrlInput from "@/components/scanner/UrlInput";
-import TechStackAccordion from "@/components/scanner/TechStackAccordion";
-import RiskAssessmentPanel from "@/components/scanner/RiskAssessmentPanel";
-import GenerateReportButton from "@/components/scanner/GenerateReportButton";
-import { useScannerState } from "@/hooks/useScannerState";
+import DashboardLayout from "@/components/layout/DashboardLayout.jsx";
+import UrlInput from "@/components/scanner/UrlInput.jsx";
+import TechStackAccordion from "@/components/scanner/TechStackAccordion.jsx";
+import RiskAssessmentPanel from "@/components/scanner/RiskAssessmentPanel.jsx";
+import GenerateReportButton from "@/components/scanner/GenerateReportButton.jsx";
+import { useScannerState } from "@/hooks/useScannerState.js";
 
 const Dashboard = () => {
   const {

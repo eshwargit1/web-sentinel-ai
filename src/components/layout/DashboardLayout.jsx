@@ -1,12 +1,7 @@
-import { ReactNode } from "react";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import Sidebar from "./Sidebar.jsx";
+import Header from "./Header.jsx";
 
-interface DashboardLayoutProps {
-  children: ReactNode;
-}
-
-const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+const DashboardLayout = ({ children }) => {
   return (
     <div className="min-h-screen bg-background">
       <Sidebar />

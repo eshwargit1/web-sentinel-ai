@@ -3,15 +3,10 @@ import { Search, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-interface UrlInputProps {
-  onScan: (url: string) => void;
-  isLoading?: boolean;
-}
-
-const UrlInput = ({ onScan, isLoading = false }: UrlInputProps) => {
+const UrlInput = ({ onScan, isLoading = false }) => {
   const [url, setUrl] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (url.trim()) {
       onScan(url.trim());

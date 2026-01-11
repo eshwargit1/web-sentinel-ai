@@ -1,9 +1,9 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
+import DashboardLayout from "@/components/layout/DashboardLayout.jsx";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ShieldIcon from "@/components/icons/ShieldIcon";
+import ShieldIcon from "@/components/icons/ShieldIcon.jsx";
 
 const Settings = () => {
   return (

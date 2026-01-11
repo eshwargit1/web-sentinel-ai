@@ -1,4 +1,4 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
+import DashboardLayout from "@/components/layout/DashboardLayout.jsx";
 import { Button } from "@/components/ui/button";
 import { Download, FileText, TrendingUp, Shield, AlertTriangle } from "lucide-react";
 

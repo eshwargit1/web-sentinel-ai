@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-interface RiskGaugeProps {
-  score: number; // 0-100, higher = more unsafe
-  label: string;
-}
-
-const RiskGauge = ({ score, label }: RiskGaugeProps) => {
+const RiskGauge = ({ score, label }) => {
   const [animatedScore, setAnimatedScore] = useState(0);
 
   useEffect(() => {

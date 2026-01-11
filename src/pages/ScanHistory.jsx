@@ -1,4 +1,4 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
+import DashboardLayout from "@/components/layout/DashboardLayout.jsx";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, FileText, Calendar, Shield } from "lucide-react";
@@ -32,7 +32,7 @@ const mockHistory = [
   },
 ];
 
-const getRiskColor = (score: number) => {
+const getRiskColor = (score) => {
   if (score <= 30) return "text-safe bg-safe/10 border-safe/20";
   if (score <= 60) return "text-warning bg-warning/10 border-warning/20";
   return "text-danger bg-danger/10 border-danger/20";

@@ -1,17 +1,11 @@
 import { FileDown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface GenerateReportButtonProps {
-  onGenerate: () => void;
-  isLoading?: boolean;
-  disabled?: boolean;
-}
-
 const GenerateReportButton = ({
   onGenerate,
   isLoading = false,
   disabled = false,
-}: GenerateReportButtonProps) => {
+}) => {
   return (
     <Button
       onClick={onGenerate}

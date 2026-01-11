@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import ShieldIcon from "@/components/icons/ShieldIcon";
+import ShieldIcon from "@/components/icons/ShieldIcon.jsx";
 import {
   LayoutDashboard,
   History,
