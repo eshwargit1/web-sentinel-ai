@@ -1,22 +1,12 @@
-import RiskGauge from "./RiskGauge";
-import AiAnalysis from "./AiAnalysis";
-
-interface RiskAssessmentPanelProps {
-  riskScore: number;
-  riskLabel: string;
-  analysis: string;
-  recommendations: Array<{
-    text: string;
-    severity: "critical" | "warning" | "info";
-  }>;
-}
+import RiskGauge from "./RiskGauge.jsx";
+import AiAnalysis from "./AiAnalysis.jsx";
 
 const RiskAssessmentPanel = ({
   riskScore,
   riskLabel,
   analysis,
   recommendations,
-}: RiskAssessmentPanelProps) => {
+}) => {
   return (
     <div className="space-y-6">
       {/* Header */}

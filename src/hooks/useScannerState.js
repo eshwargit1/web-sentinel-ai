@@ -1,35 +1,14 @@
 import { useState, useCallback } from "react";
 
-export interface ScanResult {
-  url: string;
-  timestamp: Date;
-  techStack: {
-    frontend: { label: string; items: string[] };
-    backend: { label: string; items: string[] };
-    server: { label: string; items: string[] };
-    ipAddress: { label: string; items: string[] };
-    ports: { label: string; items: string[] };
-    softwareVersions: { label: string; items: string[] };
-    domainInfo: { label: string; items: string[] };
-  };
-  riskScore: number;
-  riskLabel: string;
-  analysis: string;
-  recommendations: Array<{
-    text: string;
-    severity: "critical" | "warning" | "info";
-  }>;
-}
-
 // Mock data generator - this will be replaced with actual API calls
-const generateMockScanResult = (url: string): ScanResult => {
+const generateMockScanResult = (url) => {
   return {
     url,
     timestamp: new Date(),
     techStack: {
       frontend: {
         label: "Frontend",
-        items: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+        items: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
       },
       backend: {
         label: "Backend",
@@ -72,11 +51,11 @@ const generateMockScanResult = (url: string): ScanResult => {
 
 export const useScannerState = () => {
   const [isScanning, setIsScanning] = useState(false);
-  const [scanResult, setScanResult] = useState<ScanResult | null>(null);
+  const [scanResult, setScanResult] = useState(null);
   const [isGeneratingReport, setIsGeneratingReport] = useState(false);
-  const [scanHistory, setScanHistory] = useState<ScanResult[]>([]);
+  const [scanHistory, setScanHistory] = useState([]);
 
-  const performScan = useCallback(async (url: string) => {
+  const performScan = useCallback(async (url) => {
     setIsScanning(true);
     
     // Simulate API call delay

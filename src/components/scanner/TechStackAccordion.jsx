@@ -13,24 +13,6 @@ import {
   FileCode,
   Info,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-interface TechItem {
-  label: string;
-  items: string[];
-}
-
-interface TechStackAccordionProps {
-  data: {
-    frontend: TechItem;
-    backend: TechItem;
-    server: TechItem;
-    ipAddress: TechItem;
-    ports: TechItem;
-    softwareVersions: TechItem;
-    domainInfo: TechItem;
-  } | null;
-}
 
 const iconMap = {
   frontend: Code2,
@@ -42,7 +24,7 @@ const iconMap = {
   domainInfo: Info,
 };
 
-const TechStackAccordion = ({ data }: TechStackAccordionProps) => {
+const TechStackAccordion = ({ data }) => {
   if (!data) {
     return (
       <div className="card-cyber p-6 text-center text-muted-foreground">
@@ -59,7 +41,7 @@ const TechStackAccordion = ({ data }: TechStackAccordionProps) => {
     { key: "ports", data: data.ports },
     { key: "softwareVersions", data: data.softwareVersions },
     { key: "domainInfo", data: data.domainInfo },
-  ] as const;
+  ];
 
   return (
     <div className="card-cyber overflow-hidden">

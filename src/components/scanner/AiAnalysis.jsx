@@ -2,19 +2,11 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-interface AiAnalysisProps {
-  analysis: string;
-  recommendations: Array<{
-    text: string;
-    severity: "critical" | "warning" | "info";
-  }>;
-}
-
-const AiAnalysis = ({ analysis, recommendations }: AiAnalysisProps) => {
+const AiAnalysis = ({ analysis, recommendations }) => {
   const [isAnalysisOpen, setIsAnalysisOpen] = useState(true);
   const [isRecommendationsOpen, setIsRecommendationsOpen] = useState(true);
 
-  const getSeverityColor = (severity: string) => {
+  const getSeverityColor = (severity) => {
     switch (severity) {
       case "critical":
         return "bg-danger";

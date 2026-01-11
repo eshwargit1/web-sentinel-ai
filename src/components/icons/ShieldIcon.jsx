@@ -1,11 +1,6 @@
 import { cn } from "@/lib/utils";
 
-interface ShieldIconProps {
-  className?: string;
-  size?: number;
-}
-
-const ShieldIcon = ({ className, size = 40 }: ShieldIconProps) => {
+const ShieldIcon = ({ className, size = 40 }) => {
   return (
     <svg
       width={size}
