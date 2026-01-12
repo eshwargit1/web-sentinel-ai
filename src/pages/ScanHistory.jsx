@@ -41,15 +41,15 @@ const getRiskColor = (score) => {
 const ScanHistory = () => {
   return (
     <DashboardLayout>
-      <div className="max-w-7xl mx-auto space-y-6">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-foreground">Scan History</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-foreground">Scan History</h1>
         </div>
 
         {/* Search and Filters */}
-        <div className="card-cyber p-4">
-          <div className="flex flex-col md:flex-row gap-4">
+        <div className="card-cyber p-3 sm:p-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
               <Input
@@ -57,29 +57,63 @@ const ScanHistory = () => {
                 className="pl-10 bg-secondary border-border"
               />
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" className="border-border text-muted-foreground hover:text-foreground">
+            <div className="flex flex-wrap gap-2">
+              <Button variant="outline" size="sm" className="border-border text-muted-foreground hover:text-foreground text-xs sm:text-sm">
                 All
               </Button>
-              <Button variant="outline" size="sm" className="border-border text-muted-foreground hover:text-foreground">
+              <Button variant="outline" size="sm" className="border-border text-muted-foreground hover:text-foreground text-xs sm:text-sm">
                 Safe
               </Button>
-              <Button variant="outline" size="sm" className="border-border text-muted-foreground hover:text-foreground">
+              <Button variant="outline" size="sm" className="border-border text-muted-foreground hover:text-foreground text-xs sm:text-sm">
                 Risky
               </Button>
             </div>
           </div>
         </div>
 
-        {/* History Table */}
+        {/* History Cards (Mobile) / Table (Desktop) */}
         <div className="card-cyber overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Mobile Cards */}
+          <div className="block sm:hidden divide-y divide-border">
+            {mockHistory.map((item) => (
+              <div key={item.id} className="p-4 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Shield size={16} className="text-primary" />
+                    <span className="text-foreground font-medium text-sm">{item.url}</span>
+                  </div>
+                  <span
+                    className={cn(
+                      "px-2 py-0.5 rounded-full text-xs font-semibold border",
+                      getRiskColor(item.riskScore)
+                    )}
+                  >
+                    {item.riskLevel}
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground">{item.status}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Calendar size={12} />
+                    {item.date}
+                  </div>
+                  <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground h-8 text-xs">
+                    <FileText size={12} className="mr-1" />
+                    View
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table */}
+          <div className="hidden sm:block overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border">
                   <th className="text-left p-4 text-sm font-semibold text-muted-foreground uppercase">URL</th>
                   <th className="text-left p-4 text-sm font-semibold text-muted-foreground uppercase">Risk Level</th>
-                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground uppercase">Status</th>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground uppercase hidden md:table-cell">Status</th>
                   <th className="text-left p-4 text-sm font-semibold text-muted-foreground uppercase">Date</th>
                   <th className="text-left p-4 text-sm font-semibold text-muted-foreground uppercase">Actions</th>
                 </tr>
@@ -89,8 +123,8 @@ const ScanHistory = () => {
                   <tr key={item.id} className="hover:bg-secondary/30 transition-colors">
                     <td className="p-4">
                       <div className="flex items-center gap-3">
-                        <Shield size={18} className="text-primary" />
-                        <span className="text-foreground font-medium">{item.url}</span>
+                        <Shield size={18} className="text-primary flex-shrink-0" />
+                        <span className="text-foreground font-medium truncate max-w-[150px] lg:max-w-none">{item.url}</span>
                       </div>
                     </td>
                     <td className="p-4">
@@ -103,7 +137,7 @@ const ScanHistory = () => {
                         {item.riskLevel}
                       </span>
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground">{item.status}</td>
+                    <td className="p-4 text-sm text-muted-foreground hidden md:table-cell">{item.status}</td>
                     <td className="p-4">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar size={14} />
@@ -124,29 +158,29 @@ const ScanHistory = () => {
         </div>
 
         {/* Domain Info Summary */}
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="card-cyber p-6">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase mb-4">Domain Info</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div className="card-cyber p-4 sm:p-6">
+            <h3 className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase mb-3 sm:mb-4">Domain Info</h3>
+            <div className="space-y-2 sm:space-y-3">
+              <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">Domains</span>
                 <span className="text-foreground font-medium">3</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">Total Scans</span>
                 <span className="text-foreground font-medium">24</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">Last Scan</span>
                 <span className="text-foreground font-medium">2 hours ago</span>
               </div>
             </div>
           </div>
-          <div className="card-cyber p-6">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase mb-4">Software Versions</h3>
+          <div className="card-cyber p-4 sm:p-6">
+            <h3 className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase mb-3 sm:mb-4">Software Versions</h3>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="text-muted-foreground">Popular frameworks:</span>
+                <span className="text-muted-foreground text-sm">Popular frameworks:</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="px-2 py-1 bg-secondary rounded text-xs text-muted-foreground">React 18.2</span>

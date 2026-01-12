@@ -18,20 +18,20 @@ const AiAnalysis = ({ analysis, recommendations }) => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 sm:space-y-4">
       {/* AI Analysis Section */}
       <div className="card-cyber overflow-hidden">
         <button
           onClick={() => setIsAnalysisOpen(!isAnalysisOpen)}
-          className="w-full flex items-center justify-between p-4 hover:bg-secondary/30 transition-colors"
+          className="w-full flex items-center justify-between p-3 sm:p-4 hover:bg-secondary/30 transition-colors"
         >
-          <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+          <h3 className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">
             AI Analysis
           </h3>
           {isAnalysisOpen ? (
-            <ChevronUp size={18} className="text-muted-foreground" />
+            <ChevronUp size={16} className="text-muted-foreground sm:w-[18px] sm:h-[18px]" />
           ) : (
-            <ChevronDown size={18} className="text-muted-foreground" />
+            <ChevronDown size={16} className="text-muted-foreground sm:w-[18px] sm:h-[18px]" />
           )}
         </button>
         <div
@@ -40,8 +40,8 @@ const AiAnalysis = ({ analysis, recommendations }) => {
             isAnalysisOpen ? "max-h-96" : "max-h-0"
           )}
         >
-          <div className="px-4 pb-4">
-            <p className="text-sm text-muted-foreground leading-relaxed">
+          <div className="px-3 sm:px-4 pb-3 sm:pb-4">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
               {analysis}
             </p>
           </div>
@@ -52,15 +52,15 @@ const AiAnalysis = ({ analysis, recommendations }) => {
       <div className="card-cyber overflow-hidden">
         <button
           onClick={() => setIsRecommendationsOpen(!isRecommendationsOpen)}
-          className="w-full flex items-center justify-between p-4 hover:bg-secondary/30 transition-colors"
+          className="w-full flex items-center justify-between p-3 sm:p-4 hover:bg-secondary/30 transition-colors"
         >
-          <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+          <h3 className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">
             Recommendations
           </h3>
           {isRecommendationsOpen ? (
-            <ChevronUp size={18} className="text-muted-foreground" />
+            <ChevronUp size={16} className="text-muted-foreground sm:w-[18px] sm:h-[18px]" />
           ) : (
-            <ChevronDown size={18} className="text-muted-foreground" />
+            <ChevronDown size={16} className="text-muted-foreground sm:w-[18px] sm:h-[18px]" />
           )}
         </button>
         <div
@@ -69,16 +69,16 @@ const AiAnalysis = ({ analysis, recommendations }) => {
             isRecommendationsOpen ? "max-h-96" : "max-h-0"
           )}
         >
-          <ul className="px-4 pb-4 space-y-3">
+          <ul className="px-3 sm:px-4 pb-3 sm:pb-4 space-y-2 sm:space-y-3">
             {recommendations.map((rec, index) => (
-              <li key={index} className="flex items-start gap-3">
+              <li key={index} className="flex items-start gap-2 sm:gap-3">
                 <span
                   className={cn(
-                    "w-2 h-2 rounded-full mt-1.5 flex-shrink-0",
+                    "w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mt-1.5 flex-shrink-0",
                     getSeverityColor(rec.severity)
                   )}
                 />
-                <span className="text-sm text-muted-foreground">{rec.text}</span>
+                <span className="text-xs sm:text-sm text-muted-foreground">{rec.text}</span>
               </li>
             ))}
           </ul>

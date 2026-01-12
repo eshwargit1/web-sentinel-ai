@@ -16,14 +16,14 @@ const Dashboard = () => {
 
   return (
     <DashboardLayout>
-      <div className="max-w-7xl mx-auto space-y-6">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* URL Input */}
-        <div className="card-cyber p-4">
+        <div className="card-cyber p-3 sm:p-4">
           <UrlInput onScan={performScan} isLoading={isScanning} />
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           {/* Left Column - Tech Stack */}
           <TechStackAccordion data={scanResult?.techStack || null} />
 
@@ -36,8 +36,8 @@ const Dashboard = () => {
               recommendations={scanResult.recommendations}
             />
           ) : (
-            <div className="card-cyber p-6 text-center text-muted-foreground h-fit">
-              <p>Risk assessment will appear here after scanning</p>
+            <div className="card-cyber p-4 sm:p-6 text-center text-muted-foreground h-fit">
+              <p className="text-sm sm:text-base">Risk assessment will appear here after scanning</p>
             </div>
           )}
         </div>

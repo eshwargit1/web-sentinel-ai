@@ -27,8 +27,8 @@ const iconMap = {
 const TechStackAccordion = ({ data }) => {
   if (!data) {
     return (
-      <div className="card-cyber p-6 text-center text-muted-foreground">
-        <p>Enter a URL and click Scan to analyze the technology stack</p>
+      <div className="card-cyber p-4 sm:p-6 text-center text-muted-foreground">
+        <p className="text-sm sm:text-base">Enter a URL and click Scan to analyze the technology stack</p>
       </div>
     );
   }
@@ -45,8 +45,8 @@ const TechStackAccordion = ({ data }) => {
 
   return (
     <div className="card-cyber overflow-hidden">
-      <div className="p-4 border-b border-border">
-        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+      <div className="p-3 sm:p-4 border-b border-border">
+        <h2 className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">
           Technology Stack & Attack Surface
         </h2>
       </div>
@@ -55,20 +55,20 @@ const TechStackAccordion = ({ data }) => {
           const Icon = iconMap[key];
           return (
             <AccordionItem key={key} value={key} className="border-none">
-              <AccordionTrigger className="px-4 py-3 hover:bg-secondary/50 transition-colors [&[data-state=open]]:bg-secondary/30">
-                <div className="flex items-center gap-3">
-                  <Icon size={18} className="text-primary" />
-                  <span className="font-medium text-foreground">{section.label}</span>
+              <AccordionTrigger className="px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-secondary/50 transition-colors [&[data-state=open]]:bg-secondary/30">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Icon size={16} className="text-primary sm:w-[18px] sm:h-[18px]" />
+                  <span className="font-medium text-foreground text-sm sm:text-base">{section.label}</span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="px-4 pb-4">
-                <ul className="space-y-2 pl-8">
+              <AccordionContent className="px-3 sm:px-4 pb-3 sm:pb-4">
+                <ul className="space-y-1.5 sm:space-y-2 pl-6 sm:pl-8">
                   {section.items.map((item, index) => (
                     <li
                       key={index}
-                      className="text-sm text-muted-foreground flex items-center gap-2"
+                      className="text-xs sm:text-sm text-muted-foreground flex items-center gap-2"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
+                      <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-muted-foreground flex-shrink-0" />
                       {item}
                     </li>
                   ))}
