@@ -142,3 +142,24 @@
     }
   }
 }
+
+/* Custom breakpoint for extra small screens */
+@media (min-width: 475px) {
+  .xs\:p-4 {
+    padding: 1rem;
+  }
+  .xs\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .xs\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .xs\:w-64 {
+    width: 16rem;
+  }
+  .xs\:gap-4 {
+    gap: 1rem;
+  }
+}
