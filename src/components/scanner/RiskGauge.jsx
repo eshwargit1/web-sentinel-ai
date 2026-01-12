@@ -28,7 +28,7 @@ const RiskGauge = ({ score, label }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative w-48 h-28">
+      <div className="relative w-36 sm:w-48 h-20 sm:h-28">
         <svg
           className="w-full h-full"
           viewBox="0 0 100 55"
@@ -74,16 +74,16 @@ const RiskGauge = ({ score, label }) => {
 
         {/* Center label */}
         <div className="absolute inset-0 flex flex-col items-center justify-end pb-1">
-          <span className={cn("text-lg font-bold uppercase tracking-wide", getColor())}>
+          <span className={cn("text-base sm:text-lg font-bold uppercase tracking-wide", getColor())}>
             {label}
           </span>
         </div>
       </div>
 
       {/* Safe indicator */}
-      <div className="flex justify-between w-full px-4 mt-2">
-        <span className="text-xs text-muted-foreground">SAFE</span>
-        <span className="text-xs text-muted-foreground">UNSAFE</span>
+      <div className="flex justify-between w-full px-2 sm:px-4 mt-2">
+        <span className="text-[10px] sm:text-xs text-muted-foreground">SAFE</span>
+        <span className="text-[10px] sm:text-xs text-muted-foreground">UNSAFE</span>
       </div>
     </div>
   );
