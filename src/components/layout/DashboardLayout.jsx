@@ -8,9 +8,9 @@ const DashboardLayout = ({ children }) => {
   return (
     <div className="min-h-screen bg-background">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <div className="lg:pl-56 transition-all duration-300">
+      <div className="lg:pl-56 xl:pl-64 transition-all duration-300">
         <Header onMenuClick={() => setSidebarOpen(true)} />
-        <main className="p-4 sm:p-6">{children}</main>
+        <main className="p-3 xs:p-4 sm:p-5 md:p-6">{children}</main>
       </div>
     </div>
   );
